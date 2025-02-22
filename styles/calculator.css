@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, Arial;
+}
+
+body {
+  padding-top: 100px;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display-screen {
+  background-color: white;
+  width: 122px;
+  height: 46px;
+  padding: 30px 60px;
+  box-shadow: inset 1px 0 5px black;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.buttons {
+  height: 50px;
+  width: 50px;
+
+  font-size: 20px;
+
+  border: none;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  background-color: lightgray;
+  color: black;
+
+  cursor: pointer;
+
+  transition: box-shadow 0.15s,
+    font-size 0.15s;
+}
+
+.buttons:hover {
+  box-shadow: inset 1px 1px 2px black;
+}
+
+.buttons:active {
+  box-shadow: inset 1px 1px 4px black;
+  font-size: 18px;
+}
+
+.operations {
+  background-color: lightblue;
+}
+
+.clear {
+  background-color: lightcoral;
+}
+
+.equals {
+  background-color: lightgreen;
+}
+
+.number-pannel {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  row-gap: 8px;
+  column-gap: 8px;
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  padding: 10px;
+
+  background-color: beige;
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  border: none;
+  border-radius: 50%;
+  
+  background-color: lightcoral;
+  
+  height: 50px;
+  
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  margin: 8px;
+}
+
+.back-button:hover {
+  box-shadow: 1px 1px 2px black;
+}
+
+.back-button:active {
+  box-shadow: 0 0 0 black;
+
+  top: 22px;
+  left: 22px;
+}
