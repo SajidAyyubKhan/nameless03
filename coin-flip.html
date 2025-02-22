@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coin Flip</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: rgba(200, 230, 230, 0.8);
+
+        height: 600px;
+      }
+
+      button {
+        background-color: black;
+        color: white;
+
+        border: none;
+        border-radius: 50%;
+
+        padding: 10px;
+
+        height: 100px;
+        width: 100px;
+
+        transition: background-color 0.15s,
+          color 0.15s,
+          border 0.15s,
+          rotate 30s;
+      }
+
+      button:hover {
+        background-color: white;
+        color: black;
+
+        border: 1px solid black;
+      }
+
+      button:active {
+        rotate: 100000deg;
+      }
+
+      .player-choice {
+        margin-top: 100px;
+
+        background-color: lightgray;
+
+        padding: 40px;
+
+        border-radius: 2px;
+        border: 1px solid rgb(224, 150, 150);
+
+        box-shadow: 4px 4px 10px lightcoral;
+      }
+
+      .player-choice button {
+        height: 40px;
+        width: 80px;
+
+        margin-right: 20px;
+        margin-left: 20px;
+
+        border-radius: 2px;
+
+        rotate: 0deg;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="
+      randomMove = Math.random();
+      if (randomMove >= 0 && randomMove < 1/2) {
+        result = 'head';
+      } else {
+        result = 'tail';
+      }
+
+      if (result === playerMove) {
+        score.win++;
+        alert(`You Won.\nWins: ${score.win}. Losses: ${score.lose}.`);
+      } else if (playerMove === undefined) {
+        alert('Please first choose your guess.');
+      } else {
+        score.lose++;
+        alert(`You Lose.\nWins: ${score.win}. Losses: ${score.lose}.`);
+      }
+
+      localStorage.setItem('score', JSON.stringify(score));
+    ">
+      Coin
+    </button>
+
+    <div class="player-choice">
+      <button onclick="
+        playerMove = 'head';
+        alert('You picked head.');  
+      ">
+        Head
+      </button>
+
+      <button onclick="
+        playerMove = 'tail';
+        alert('You picked tail.');
+      ">
+        Tail
+      </button>
+    </div>
+
+    <button style="
+      margin-top: 20px;
+      border-radius: 2px;
+      height: 40px;
+      width: 300px;
+      rotate: 0deg;
+    " onclick="
+      score.win = 0;
+      score.lose = 0;
+      localStorage.remove('score');
+    ">
+      Reset Score
+    </button>
+
+    <script>
+      let randomMove;
+      let playerMove;
+      let result;
+      const score = JSON.parse(localStorage.getItem('score')) || {
+        win: 0,
+        lose: 0
+      };
+    </script>
+  </body>
+</html>
